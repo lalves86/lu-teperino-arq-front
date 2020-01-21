@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bar-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #D87a6e;
+    transition: width .6s ease;
+}
+
+.navegacao {
+  background-color: #D87a6e;
+}
+
+.concluido {
+  background-color: rgb(141, 189, 11, 0.48) !important;
+}
+
+table, th, td {
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: rgba(216, 122, 110, 0.795);
+  color: #fff;
+}
+
+tr:nth-child(odd) {
+  background-color: #e5e5e5;
+}
+
+table {
+  width: 100%;
+}
