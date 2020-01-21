@@ -1,12 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Orcamento from './Orcamento';
-import OrcamentosAPI from '../../assets/Orcamentos';
+import api from '../../services/api';
 
 const Orcamentos = () => {
-  const [orcamentos] = useState(OrcamentosAPI);
+  const [orcamentos, setOrcamentos] = useState([]);
+
+  useEffect(() => {
+    async function loadOrcamentos() {
+      const response = await api.get('/orcamentos');
+      setOrcamentos(response.data);
+    }
+    loadOrcamentos();
+  }, []);
+
   const orcamentoItem = orcamentos.map(orcamento => {
     return <Orcamento
-              key={orcamento.id}
+              key={orcamento._id}
               data={orcamento}
             />
     });

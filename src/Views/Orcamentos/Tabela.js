@@ -16,7 +16,7 @@ const Tabela = props => {
 
   const itemTabela = detail.data.map(item => {
     return (
-      <tr key={item.id}>
+      <tr key={item._id}>
         <td>{item.item}</td>
         <td>{item.descricao}</td>
         <td>R$ {item.preco}</td>

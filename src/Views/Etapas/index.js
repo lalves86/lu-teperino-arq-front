@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Etapa from './Etapa';
-import EtapasData from '../../assets/ListadeEtapas';
 import api from '../../services/api'
 
 class Etapas extends Component {
