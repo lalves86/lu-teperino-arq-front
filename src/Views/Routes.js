@@ -3,7 +3,6 @@ import Etapas from './Etapas/';
 import Images from './Images/';
 import Orcamentos from './Orcamentos/';
 import Pagamentos from './Pagamentos/';
-import Home from './index';
 import Main from './Main';
 
 
