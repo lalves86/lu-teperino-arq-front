@@ -4,6 +4,7 @@ import Images from './Images/';
 import Orcamentos from './Orcamentos/';
 import Pagamentos from './Pagamentos/';
 import Home from './index';
+import Main from './Main';
 
 
 import {
@@ -57,7 +58,7 @@ class Routes extends Component {
             <Pagamentos />
           </Route>
           <Route exact path="/">
-            <Home />
+            <Main />
           </Route>
         </Switch>
       </Router>
