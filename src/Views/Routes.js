@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Login from './Login';
 import Etapas from './Etapas';
 import Images from './Images';
 import Orcamentos from './Orcamentos';
@@ -24,7 +25,7 @@ function Routes() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/home">
                 Voltar <span className="sr-only">(current)</span>
               </Link>
             </li>
@@ -50,7 +51,7 @@ function Routes() {
             </li>
           </ul>
         </div>
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/home">
           HOME
         </Link>
       </nav>
@@ -68,7 +69,7 @@ function Routes() {
         <Route path="/pagamentos">
           <Pagamentos />
         </Route>
-        <Route exact path="/">
+        <Route path="/home">
           <Main />
         </Route>
       </Switch>
