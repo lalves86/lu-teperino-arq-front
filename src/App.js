@@ -1,14 +1,20 @@
-import React, {Component} from 'react';
-import Routes from './Views/Routes';
+import React from 'react';
+import { Router } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
+import './config/ReactotronConfig';
+
+import Routes from './routes';
+
+import history from './services/history';
+
+function App() {
+  return (
+    <div className="App">
+      <Router history={history}>
         <Routes />
-      </div>
-    );
-  }
+      </Router>
+    </div>
+  );
 }
 
 export default App;
