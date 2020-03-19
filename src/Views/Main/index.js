@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.css';
 
-import api from '../../services/api';
+import api from '~/services/api';
 
 import Footer from '../Footer';
 
 const Main = () => {
-  const [etapas, setEtapas] = useState([]);
+  const [projetos, setProjetos] = useState([]);
 
   useEffect(() => {
-    async function loadEtapas() {
-      const response = await api.get('/etapas');
+    async function loadProjetos() {
+      const response = await api.get('/projetos');
 
-      setEtapas(response.data);
+      setProjetos(response.data);
     }
-    loadEtapas();
+    loadProjetos();
   }, []);
 
-  const etapasArray = etapas.map(etapa => {
+  const projetosArray = projetos.map(projeto => {
+    const clientExists = projeto.cliente_id;
     return (
-      <div key={etapa._id} className="card-etapa">
+      <div key={projeto._id} className="card-etapa">
         <a className="main-links" href="/etapas">
-          {etapa.descricao}
+          <span>{projeto.nome}</span>
+          <span>
+            {clientExists ? clientExists.nome : 'Nenhum cliente atribuído'}
+          </span>
         </a>
       </div>
     );
@@ -30,7 +34,7 @@ const Main = () => {
   return (
     <>
       <div style={styles} className="container-group">
-        {etapasArray}
+        {projetosArray}
       </div>
       <div className="main-content" />
       <div className="button-container">

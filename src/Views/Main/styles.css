@@ -25,6 +25,10 @@
   align-items: center;
 }
 
+.main-links span {
+  display: block;
+}
+
 .main-content {
   background-color: #d87a6e;
   width: 100%;
