@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import Route from './Route';
 import Login from '../Views/Login';
+import Cadastro from '../Views/Cadastro';
 import Etapas from '../Views/Etapas';
 import Images from '../Views/Images';
 import Orcamentos from '../Views/Orcamentos';
@@ -12,6 +13,7 @@ function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Login} />
+      <Route path="/cadastro" component={Cadastro} />
       <Route path="/etapas" component={Etapas} isPrivate />
       <Route path="/imagens" component={Images} isPrivate />
       <Route path="/orcamentos" component={Orcamentos} isPrivate />

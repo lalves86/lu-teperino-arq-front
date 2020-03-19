@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Orcamento from './Orcamento';
 import api from '../../services/api';
 
@@ -14,11 +14,8 @@ const Orcamentos = () => {
   }, []);
 
   const orcamentoItem = orcamentos.map(orcamento => {
-    return <Orcamento
-              key={orcamento._id}
-              data={orcamento}
-            />
-    });
+    return <Orcamento key={orcamento._id} data={orcamento} />;
+  });
 
   return (
     <div className="container">
@@ -30,7 +27,7 @@ const Orcamentos = () => {
       </div>
       {orcamentoItem}
     </div>
-  )
-}
+  );
+};
 
 export default Orcamentos;
