@@ -35,6 +35,19 @@ export const Content = styled.div`
       font-weight: bold;
     }
 
+    div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      label {
+        font-size: 16px;
+        color: #d87a6e;
+        font-weight: bold;
+        padding-left: 10px;
+      }
+    }
+
     button {
       margin: 5px 0 0;
       height: 44px;

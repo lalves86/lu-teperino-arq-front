@@ -1,8 +1,30 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+import { Form, Input, Check } from '@rocketseat/unform';
 import logo from '~/assets/images/logo.jpeg';
 
-function Login() {
+import { signUpRequest } from '~/store/modules/auth/actions';
+
+const schema = Yup.object().shape({
+  nome: Yup.string().required('*O nome é obrigatório'),
+  email: Yup.string()
+    .email('*Insira um e-mail válido')
+    .required('*O e-mail é obrigatório'),
+  password: Yup.string()
+    .min(6, 'A senha deve ter no mínimo 6 caracteres')
+    .required('*A senha é obrigatória'),
+});
+
+function Cadastro() {
+  const dispatch = useDispatch();
+
+  function handleSubmit({ nome, email, password, profissional }) {
+    dispatch(signUpRequest(nome, email, password, profissional));
+    console.tron.log(profissional);
+  }
+
   return (
     <>
       <img
@@ -10,23 +32,18 @@ function Login() {
         alt="Luciana Teperino Arquitetura"
         style={{ width: 100, height: 100 }}
       />
-      <form method="post">
-        <input type="text" placeholder="Seu nome completo" />
-        <input type="text" placeholder="Seu e-mail" />
-        <input type="password" placeholder="Sua senha" />
-        <input type="text" placeholder="Documento de identificação" />
-        <input type="phone" placeholder="Telefone de contato" />
-        <span>Endereço</span>
-        <input type="text" placeholder="CEP" />
-        <input type="text" placeholder="Rua" />
-        <input type="text" placeholder="Número" />
-        <input type="text" placeholder="Cidade" />
-        <input type="text" placeholder="Estado" />
+      <Form schema={schema} onSubmit={handleSubmit}>
+        <Input name="nome" type="text" placeholder="Seu nome completo" />
+        <Input name="email" type="email" placeholder="Seu e-mail" />
+        <Input name="password" type="password" placeholder="Sua senha" />
+        <div>
+          <Check name="profissional" label="Sou profissional" />
+        </div>
         <button type="submit">Criar conta</button>
         <Link to="/">Já tenho cadastro</Link>
-      </form>
+      </Form>
     </>
   );
 }
 
-export default Login;
+export default Cadastro;

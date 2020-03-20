@@ -30,7 +30,7 @@ function Login() {
         style={{ width: 100, height: 100 }}
       />
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="text" placeholder="Seu e-mail" />
+        <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Sua senha" />
         <button type="submit">
           {loading ? 'Carregando...' : 'Fazer Login'}

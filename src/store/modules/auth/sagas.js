@@ -28,6 +28,29 @@ export function* signIn({ payload }) {
   }
 }
 
+export function* signUp({ payload }) {
+  try {
+    const { nome, email, password, profissional } = payload;
+
+    yield call(api.post, 'cadastro', {
+      nome,
+      email,
+      password,
+      profissional,
+    });
+
+    history.push('/');
+
+    toast.success('Conta criada com sucesso!');
+  } catch (err) {
+    toast.error(
+      'Ops! Não foi possível concluir o cadastro! Verifique os dados e tente novamente!'
+    );
+
+    yield put(signFailure());
+  }
+}
+
 export function setToken({ payload }) {
   if (!payload) return;
 
@@ -41,4 +64,5 @@ export function setToken({ payload }) {
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+  takeLatest('@auth/SIGN_UP_REQUEST', signUp),
 ]);
