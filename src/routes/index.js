@@ -8,6 +8,7 @@ import Images from '../Views/Images';
 import Orcamentos from '../Views/Orcamentos';
 import Pagamentos from '../Views/Pagamentos';
 import Main from '../Views/Main';
+import Profile from '~/Views/Profile';
 
 function Routes() {
   return (
@@ -19,6 +20,7 @@ function Routes() {
       <Route path="/orcamentos" component={Orcamentos} isPrivate />
       <Route path="/pagamentos" component={Pagamentos} isPrivate />
       <Route path="/home" component={Main} isPrivate />
+      <Route path="/perfil" component={Profile} isPrivate />
       <Route path="/" component={() => <h1>404 - Not Found!</h1>} />
     </Switch>
   );
